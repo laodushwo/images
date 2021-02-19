@@ -1,0 +1,33 @@
+server:
+  port: 5500
+  context-path: /school
+name: adu
+
+
+#默认使用配置
+#spring:
+#  profiles:
+#    active: dev
+
+
+#开发配置
+spring:
+# profiles: dev
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+dubbo:
+  application:
+    name:  dubbo-consumer
+  registry:
+    address: 127.0.0.1:2184
+    protocol: zookeeper
+    check: false
+  monitor:
+    protocol: register
+  consumer:
+    check:  false
+    timeout: 30000
