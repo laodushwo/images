@@ -13,10 +13,10 @@ public class WeChatTokenUtil {
     private static final String BASE_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?";
     //固定值
     private static final String GRANT_TYPE = "client_credential";
-    //自己的AppID
-    private static final String APP_ID = "wxe11b10afcf21067c";
-    //自己的AppSecret
-    private static final String SECRET = "677f690add471cbec764e4463e807966";
+    //读者学堂的AppID
+    private static final String APP_ID = "wxbc966e0536c0678f";
+    //读者学堂的AppSecret
+    private static final String SECRET = "a3ab90112766966894fc70ba05cbef7e";
 
     public static String getToken(){
         String url = BASE_TOKEN_URL + "grant_type="+GRANT_TYPE+"&appid="+APP_ID+"&secret="+SECRET;
