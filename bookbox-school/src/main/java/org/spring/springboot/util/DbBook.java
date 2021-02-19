@@ -82,7 +82,7 @@ public class DbBook {
             
             log.info("豆瓣抓取成功：{}", isbn);
             return book;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			log.info("豆瓣读书未抓取到书：{}", isbn);
 		}
         return null;

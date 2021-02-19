@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.amall.admin.commons.util.ArithUtils;
 import com.amall.admin.commons.util.Q;
 import com.amall.app.abstacts.AbstractAO;
 import com.amall.books.commons.dointerface.NewBookService;
@@ -20,6 +21,9 @@ import com.amall.books.commons.domain.NewBookVO;
 import com.amall.commons.result.DefaultResult;
 import com.amall.commons.result.Result;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class DefaultBookAO extends AbstractAO implements BookAO {
 
@@ -41,7 +45,7 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 		NewBookVO bVO = jsoupBook(isbn);
 		// 爬取失败，则返回错误提示
 		if (null == bVO) {
-			result.setErrors("A0001", getMsg("A0001"));
+			result.setErrors("A0001", getMsg("A0001", new String[] { isbn }));
 			return result;
 		}
 		// 爬取成功，则返回及异步插入库
@@ -84,10 +88,13 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 		if (null != jdBook) {
 			return jdBook;
 		}
-		// 备用地址1
-		NewBookVO byOneBook = useSite1(isbn);
+		// 备用地址1,暂不用，太慢了
+//		NewBookVO byOneBook = useSite1(isbn);
 		// 备用地址2
 		NewBookVO byTwoBook = useSite2(isbn);
+		if (null != byTwoBook) {
+			return byTwoBook;
+		}
 		
 		return null;
 	}
@@ -102,6 +109,7 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 		try {
 			String url = "http://139.196.57.196:10087/getBookInfo?isbn="+isbn;
 			String json = HttpUtils.httpGet(url);
+			System.out.println(json);
 			/**
 			 {
 				"status": 0,
@@ -142,13 +150,18 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 			String url = "https://book.feelyou.top/isbn/"+isbn;
 			String json = HttpUtils.httpGet(url);
 			if (json.contains("error")) {
-				System.out.println(json);
+				log.info(json);
 				return null;
 			}
+			log.info("备用地址抓取成功：{}", json);
+			NewBookVO bookVO = new NewBookVO();
+			bookVO.setIsbn(isbn);
 			JSONObject obj = JSON.parseObject(json);
 			String name = obj.getString("title");
+			bookVO.setName(name);
 			String other = obj.getString("abstract");
 			String intro = obj.getString("book_intro");
+			bookVO.setIntro(intro);
 			if (!Q.isEmpty(other)) {
 				String [] arr  = other.split(" / ");
 				String publisher = null, price = null;
@@ -158,6 +171,7 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 					return null;
 				}
 				String author = arr[0];
+				bookVO.setAuthor(author);
 				if (count > 4) {
 					publisher = arr[3];
 					price = arr[5];
@@ -165,9 +179,11 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 					publisher = arr[2];
 					price = arr[4];
 				}
-				
+				bookVO.setPublisher(publisher);
+				Double priceVal = Double.parseDouble(price);
+				bookVO.setPrice(ArithUtils.yuanToCent(priceVal));
 			}
-			
+			return bookVO;
 		} catch (Exception e) {
 		}
 		return null;
