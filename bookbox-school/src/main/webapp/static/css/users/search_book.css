@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+#bookName{
+/* 	margin-left: 0.5rem; */
+	border: 0;
+	line-height: 1rem;
+}
+.search_box{
+	width: 100%;
+	text-align: center;
+	padding: 0.1rem 0rem 0.3rem;
+}
+.search_box .input{
+	width: 85%;
+	border: none;
+	background-color: #f5f6f7;
+	border-radius: 1rem;
+	padding-left: 8px;
+	margin-top: 0.2rem;
+	letter-spacing: 1px;
+	box-shadow: 1px 1px 1px 1px #e9e7e7;
+}
+.search_box .btn_search{
+	width: 1rem;
+   	height: 2rem;
+}
+.search_box .btn_search .search_img{
+	width: 1.3rem;
+   margin: 0.5rem -2rem;
+   position: absolute;
+}
+.input {
+    outline-style: none;
+    border: 1px solid #dcdcde;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    width: 85%;
+    font-size: 1em;
+    /* font-weight: 700; */
+    font-family: "Microsoft soft";
+}
+.input:focus {
+    outline:none;
+     border:#87C6F9 1px solid;
+     box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+input::-webkit-input-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input:-moz-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input::-moz-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input:-ms-input-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+.mescroll{
+	position: fixed;
+	top: 3rem;
+	bottom: 0px;
+	height: auto; /*如设置bottom:50px,则需height:auto才能生效*/
+}
+._main_section {
+	margin-bottom: 0.25rem;
+}
+._main_section ul li {
+	height: 2.5rem;
+    border-bottom: 1px solid #dcdcd7;
+    width: 95%;
+    padding: 0.5rem 0;
+    background-size: 0.4rem;
+    font-size: 0.5rem;
+    color: #444;
+    margin-left: 0.5rem;
+}
+.rigth_box {
+    padding-left: 0.5rem;
+}
+.book_name {
+	font-size: 0.8rem;
+    height: 1.5rem;
+    overflow: hidden;
+    line-height: 1rem;
+}

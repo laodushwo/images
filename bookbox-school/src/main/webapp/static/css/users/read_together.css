@@ -1,0 +1,119 @@
+
+.head_title {
+	width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    background-color: #97c165;
+    color: #fffdfd;
+    letter-spacing: 2px;
+}
+.head_title .title {
+	font-size:16px;
+}
+.sell {
+	overflow: hidden;
+	width: 100%;
+	line-height: 2rem;
+	border-radius: 1rem;
+	background-color: #f6f6f6;
+	margin-top: 1rem;
+}
+.sell li {
+	float: left;
+    height: 7%;
+    width: 100%;
+    color: #666666;
+    font-size: 0.8rem;
+    /* margin: 0rem 0rem 0rem 4rem; */
+    text-align: center;
+    line-height: 2.3rem;
+}
+
+.input {
+    outline-style: none;
+    border: 1px solid #dcdcde;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    width: 55%;
+    /* font-weight: 700; */
+    font-family: "Microsoft soft";
+}
+.input:focus {
+    outline:none;
+     border:#87C6F9 1px solid;
+     box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+input::-webkit-input-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input:-moz-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input::-moz-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input:-ms-input-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+.remark {
+	color: #797878;
+	width: 93%;
+	border-radius: 10px;
+	padding: 0.5rem 0.6rem;
+	border-color: #dedede;
+	margin-top: 0.3rem;
+	text-indent:1em;
+	line-height: 1.3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.start_activity {
+	width: 100%;
+    position: fixed;
+    bottom: 1%;
+    overflow: hidden;
+    text-align: center;
+}
+._button {
+    line-height: 1.5rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    padding: 0 2rem;
+    font-size: 1.2em;
+    border-radius: 5rem;
+    color: white;
+    background-color: rgb(255,186,23);
+    letter-spacing: 2px;
+}
+.xing {
+	color: red;
+}

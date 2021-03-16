@@ -33,6 +33,10 @@ public class GtBook {
     public static final String GT_MARC = "?func=full-set-set_body&set_number=%s&set_entry=000001&format=001";
     public static Pattern pattern = Pattern.compile("[0-9]{3}");
 
+    public static void main(String[] args) {
+    	gjtsg("sdfafasdf");
+	}
+    
 	public static NewBookVO gjtsg(String isbn) {
 		try {
 			Map<String, List<String>> out_map = new ConcurrentHashMap<>();
@@ -170,13 +174,13 @@ public class GtBook {
 	}
 	
 	private static String getPrefix() throws Exception {
-//        log.info("搜索国图动态码...");
+        System.out.println("搜索国图动态码...");
         long session = Math.round(Math.random() * 1000000000);
         String url = "http://opac.nlc.cn:80/F?RN=" + session;
         String page = HttpUtils.httpGet(url);
         int index = page.indexOf("URL=http://opac.nlc.cn:80");
         String substring = page.substring(index + 4, index + 84);
-//        log.info("动态码: {}", substring);
+        System.out.println("动态码:  " + substring);
         return substring;
     }
 	

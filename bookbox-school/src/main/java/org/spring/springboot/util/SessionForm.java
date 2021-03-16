@@ -7,6 +7,7 @@ package org.spring.springboot.util;
 import java.io.Serializable;
 
 import com.amall.books.commons.domain.UsersVO;
+import com.amall.books.commons.domain.ZzUsersVO;
 
 /**
  * 
@@ -15,20 +16,20 @@ import com.amall.books.commons.domain.UsersVO;
  */
 public class SessionForm implements Serializable {
 	private static final long serialVersionUID = -5462725180167952925L;
-	private UsersVO usersVO;
+	private ZzUsersVO usersVO;
 	private String role;
 
-	public SessionForm(UsersVO usersVO, String role) {
+	public SessionForm(ZzUsersVO usersVO, String role) {
 		super();
 		this.usersVO = usersVO;
 		this.role = role;
 	}
 
-	public UsersVO getUsers() {
+	public ZzUsersVO getUsers() {
 		return usersVO;
 	}
 
-	public void setUsers(UsersVO usersVO) {
+	public void setUsers(ZzUsersVO usersVO) {
 		this.usersVO = usersVO;
 	}
 

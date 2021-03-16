@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+/** 头部输入框查询样式   **/
+#bookName{
+/* 	margin-left: 0.5rem; */
+	border: 0;
+	line-height: 1rem;
+}
+.search_box{
+	width: 100%;
+	text-align: center;
+	padding: 0.1rem 0rem 0.3rem;
+}
+.search_box .input{
+	width: 85%;
+	border: none;
+	background-color: #f5f6f7;
+	border-radius: 1rem;
+	padding-left: 8px;
+	margin-top: 0.2rem;
+	letter-spacing: 1px;
+	box-shadow: 1px 1px 1px 1px #e9e7e7;
+}
+.search_box .btn_search{
+	width: 1rem;
+   	height: 2rem;
+}
+.search_box .btn_search .search_img{
+	width: 1.3rem;
+   margin: 0.5rem -2rem;
+   position: absolute;
+}
+.input {
+    outline-style: none;
+    border: 1px solid #dcdcde;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    width: 85%;
+    font-size: 1em;
+    /* font-weight: 700; */
+    font-family: "Microsoft soft";
+}
+.input:focus {
+    outline:none;
+     border:#87C6F9 1px solid;
+     box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+input::-webkit-input-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input:-moz-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input::-moz-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+input:-ms-input-placeholder {
+  	color: #cfcfcf;
+  	font-size: 14px;
+}
+
+/**  图片样式  **/
+.scroll {
+    height: 8.3rem;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 1px #aaa;
+    background:url(/school/static/image/homepage/p3.png) top center no-repeat;
+  	background-size: 100% 100%;
+}
+.scroll li{
+    float: right;
+    font-size: 0.5rem;
+}
+.scroll ul li div{
+    margin: 80% auto;
+    text-align: center;
+}
+.scroll ul li div img{
+    width: 50%;
+    padding-left: 0.2rem;
+}
+.scroll ul li p{
+    text-align: center;
+    padding-top: 0.5rem;
+    color: #f7f2f2;
+}
+
+
+
+/** 菜单样式  **/
+.center{
+	bottom:4rem;
+	overflow: hidden;
+	zoom:1;
+}
+.center li{
+    width: 33%;
+    float: left;
+    font-size: 0.5rem;
+}
+.center ul li div{
+    margin: 10% auto;
+    text-align: center;
+}
+.center ul li div img{
+    width: 60%;
+    padding-left: 0.2rem;
+}
+.center ul li p{
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+/** 切换按钮样式  **/
+.wrap{
+    width: 50%;
+    height: 45px;
+    margin-left: 0.5rem;
+    letter-spacing: 2px;
+    position: relative;
+}
+.wrap label{
+    width: 50%;
+    height: 2rem;
+    line-height: 2rem;
+    float: left;
+    text-align: center;
+    margin-top: 0.3rem;
+    font-size: 15px;
+    font-weight: bolder;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 5px 0 rgba(0,0,0,0.19);
+}
+.wrap label:nth-of-type(4){
+    border-right: none;
+}
+.wrap label span{
+    cursor: pointer;
+}
+.wrap label span .img{
+	width: 2rem;
+}
+.wrap label span p{
+	padding-bottom: 0.5rem;
+}
+.current{
+	background-color: #f5b352;
+    color: #428bca;  
+    text-align: center; 
+    vertical-align: middle;  
+    font-weight: 900; 
+    font-size:125%;
+    background: gold;
+    border: none;
+    border-radius: 5px 5px 20px 5px;
+    width: 200px;
+    height: 100px;
+}
+.other {
+	background-color: #e2dfdf; 
+    color: #428bca;  
+    text-align: center; 
+    vertical-align: middle;  
+    font-weight: 900; 
+    font-size:125%;
+    
+    border: none;
+    border-radius: 5px 5px 20px 5px;
+    width: 200px;
+    height: 100px;
+}
+
+/** 热门图书样式   **/
+.top100{
+	margin-top: 0.3rem;
+	padding: 10px 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    gap: 14px 4px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.top100 .child {
+    height: 8.2rem;
+    padding: 0.5rem 0rem;
+    font-size: 0.7rem;
+    border-radius: 8px;
+    text-align: center;
+    background: #f5f1f1;
+    letter-spacing: 1px;
+}
+.top100 .book_image{
+    float:left;
+    height: 0.1rem;
+    font-size:12px;
+}
+.top100 .book_image img{
+  	width: 4.8rem;
+    border-radius: 0.3rem;
+}
+.book_p{
+ 	display: inline-block;
+ 	overflow: hidden;
+ 	width: 100px;
+ 	word-break: keep-all;
+ 	white-space: nowrap;
+ 	text-overflow: ellipsis;
+ 	margin-top: 0.1rem;
+}
+
+/** 活动   **/
+.activity {
+	position: fixed;
+    right: 7px;
+    top: 50%;
+    /* margin-top: -100px; */
+    z-index: 999999;
+    display: none;
+}
+.dbutton {
+	width: 35px;
+    height: 66px;
+    border: 1px solid #926b5c;
+    padding: 4px;
+    /* letter-spacing: 3px; */
+    border-radius: 10px;
+    color: #f2f3f3;
+    background-color: #926b5c;
+    font-size: 18px;
+}
+
+
+

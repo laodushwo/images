@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.amall.books.commons.domain.UsersVO;
+import com.amall.books.commons.domain.ZzUsersVO;
 
 /**
  * 
@@ -37,7 +37,7 @@ public final class WebUtils {
 	 * @param request
 	 * @return
 	 */
-	public static UsersVO getUsers(HttpServletRequest request) {
+	public static ZzUsersVO getUsers(HttpServletRequest request) {
 		SessionForm form = getSessionForm(request);
 		if (form != null) {
 			return form.getUsers();
@@ -52,7 +52,7 @@ public final class WebUtils {
 	 * @return
 	 */
 	public static String getUsername(HttpServletRequest request) {
-		UsersVO user = getUsers(request);
+		ZzUsersVO user = getUsers(request);
 		if (user != null) {
 			return user.getUsername();
 		}
@@ -65,7 +65,7 @@ public final class WebUtils {
 	 * @return
 	 */
 	public static String getUserId(HttpServletRequest request) {
-		UsersVO user = getUsers(request);
+		ZzUsersVO user = getUsers(request);
 		if (user != null) {
 			return user.getId();
 		}

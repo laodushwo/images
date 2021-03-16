@@ -1,0 +1,211 @@
+.book_title {
+    background-color: #97c165;
+    padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+    color: #f3f3f3;
+    line-height: 1.5rem;
+    margin: 0.2rem;
+}
+.book_name {
+	font-size: 0.8rem;
+}
+.book_author {
+	font-size: 0.5rem;
+}
+.intro_content {
+	text-indent:1em;
+	line-height: 1.5;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.hr {
+	border:1px solid #CCC;
+	margin: 0.2rem;
+}
+.mind_map {
+	padding: 0rem 0.6rem 0rem 0.8rem;
+    line-height: 1.5rem;
+    margin-bottom: 5.3rem;
+}
+.bold {
+	font-size: 0.8rem;
+    font-weight: bold;
+}
+.mind_map div{
+    
+}
+.mind_map div img{
+    width: 40%;
+    margin-left: -0.2rem;
+}
+.mind_map div p{
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.read_feel {
+	padding: 0rem 0.6rem 0rem 0.8rem;
+    line-height: 1.5rem;
+}
+.content {
+	text-indent:1em;
+	line-height: 1.5;
+}
+
+.link {
+	width: 50%;
+	float: left;
+}
+.create {
+	width: 40%;
+    float: left;
+    background-color: rgb(151,193,101);
+    border-radius: 90px;
+    color: white;
+    text-align: center;
+}
+
+.tab-content .article_li {
+	line-height: 1.5rem;
+    padding: 0.3rem 0.5rem 0rem 0.3rem;
+    /* background-color: #eeeeee8f; */
+    height: 6.5rem;
+    margin-top: 0.3rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid #eee;
+}
+
+.intro {
+	width: 93%;
+	border-radius: 10px;
+	padding: 0.5rem 0.6rem;
+	border-color: #dedede;
+	margin-top: 0.3rem;
+}
+textarea:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+div.pl_r {
+	right: 1%;
+    position: absolute;
+    /* bottom: 1%; */
+    overflow: hidden;
+    margin: 2.5rem 0.6rem 0rem 0rem;
+}
+.tj {
+	background-color: #e9e7e7;
+    border: 1px solid #dedede;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    letter-spacing: 7px;
+    padding: 0.1rem;
+    border-radius: 0.3rem;
+    color: #555; 
+}
+#head_image {
+	height: 1.5rem;
+    width: 1.5rem;
+    overflow: hidden;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.tab-content {
+	margin-bottom: 2rem;
+}
+.tab-content .article_li {
+	line-height: 1.5rem;
+    padding: 0.3rem 0.5rem 0rem 0.3rem;
+    /* background-color: #eeeeee8f; */
+    height: 5rem;
+    margin-top: 0.3rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid #eee;
+}
+
+.nn {
+	letter-spacing: 1px;
+	color: black;
+}
+.cd {
+	float: right;
+}
+.pl_contnet {
+    margin: 0.1rem;
+    line-height: 1rem;
+    text-indent: 1.2rem;
+    text-align: justify;
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    -ms-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    list-style: none;
+    opacity: 1;
+    letter-spacing: 0.3px;
+    color: #333;
+    font-size: 1em;
+    height: 3rem;
+    overflow-y: scroll;
+}
+
+.xdhg {
+	width: 100%;
+    position: fixed;
+    bottom: 1%;
+    overflow: hidden;
+    text-align: center;
+}
+._button {
+    line-height: 1.5rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    padding: 0 2rem;
+    font-size: 1.2em;
+    border-radius: 5rem;
+    color: white;
+    background-color: rgb(255,186,23);
+    letter-spacing: 2px;
+}
+
+.pl_content {
+	display: none;
+}
+
+.zwpl {
+	width: 90%;
+    margin: 1rem auto;
+    text-align: center;
+    display: none;
+}
+
+.imgDel {
+	width: 20px;
+    height: 20px;
+    top: -12px;
+    right: -15px;
+    list-style: none;
+    position: relative;
+    float: right;
+    display: -webkit-box;
+}

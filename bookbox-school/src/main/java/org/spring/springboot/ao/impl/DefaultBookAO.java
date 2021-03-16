@@ -1,5 +1,8 @@
 package org.spring.springboot.ao.impl;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.spring.springboot.ao.BookAO;
@@ -13,11 +16,14 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.amall.admin.commons.constant.PublicConstants;
 import com.amall.admin.commons.util.ArithUtils;
 import com.amall.admin.commons.util.Q;
 import com.amall.app.abstacts.AbstractAO;
 import com.amall.books.commons.dointerface.NewBookService;
+import com.amall.books.commons.dointerface.ZzBookLogService;
 import com.amall.books.commons.domain.NewBookVO;
+import com.amall.commons.page.Page;
 import com.amall.commons.result.DefaultResult;
 import com.amall.commons.result.Result;
 
@@ -31,7 +37,104 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 	private NewBookService newBookService;
 	
 	@Resource
+	private ZzBookLogService zzBookLogService;
+	
+	@Resource
 	private ThreadPoolTaskExecutor taskExecutor;
+	
+	@Override
+	public Result getByBookDetail(String userId, String isbn) {
+		return newBookService.getByBookDetail(userId, isbn);
+	}
+	
+	@Override
+	public Result bookUpDown(String gradeCode, String isbn, int type, int udType, String location) {
+		log.info("API-上下架操作：{}, {}, {}, {}, {}", new Object[] { gradeCode, isbn, type, udType, location });
+		
+		Result result = new DefaultResult();
+		if (Q.isEmpty(gradeCode) || Q.isEmpty(isbn) || type == 0 || 
+				udType == 0 || Q.isEmpty(location)) {
+			result.setErrors("A0002", getMsg("A0002"));
+			return result;
+		}
+		if (isbn.length() < 11) {
+			result.setErrors("A0004", getMsg("A0004"));
+			return result;
+		}
+		List<Integer> typeList = Arrays.asList(PublicConstants.TypeV1, PublicConstants.TypeV2);
+		if (!typeList.contains(type) || !typeList.contains(udType)) {
+			result.setErrors("A0003", getMsg("A0003"));
+			return result;
+		}
+		
+		return newBookService.bookUpDown(gradeCode, isbn, type, udType, location);
+	}
+	
+	@Override
+	public Result operate(String phcode, String isbn, int type, String gmtOperate) {
+		log.info("API-借还书操作：{}, {}, {}, {}", new Object[] { phcode, isbn, type, gmtOperate });
+		
+		Result result = new DefaultResult();
+		if (Q.isEmpty(phcode) || Q.isEmpty(isbn) || type == 0 || Q.isEmpty(gmtOperate)) {
+			result.setErrors("A0002", getMsg("A0002"));
+			return result;
+		}
+		if (isbn.length() < 11) {
+			result.setErrors("A0004", getMsg("A0004"));
+			return result;
+		}
+		List<Integer> typeList = Arrays.asList(PublicConstants.Borrow, PublicConstants.Still);
+		if (!typeList.contains(type)) {
+			result.setErrors("A0003", getMsg("A0003"));
+			return result;
+		}
+		if (!Q.dateBetween(gmtOperate)) {
+			result.setErrors("A0005", getMsg("A0005"));
+			return result;
+		}
+		
+		return newBookService.operate(phcode, isbn, type, gmtOperate);
+	}
+	
+	@Override
+	public Result bookLogList(String userId, Page page) {
+		return zzBookLogService.bookLogList(userId, page);
+	}
+	
+	@Override
+	public Result qrcodeKeep(String userId, String isbn) {
+		return newBookService.addUserKeep(userId, isbn);
+	}
+	
+	@Override
+	public Result mybook(String userId, Page page) {
+		return newBookService.mybook(userId, page);
+	}
+	
+	@Override
+	public Result getByBookName(String name) {
+		return newBookService.getByBookName(name);
+	}
+	
+	@Override
+	public Result getByBookFullName(String name) {
+		return newBookService.getByBookFullName(name);
+	}
+	
+	@Override
+	public Result gradeBookUd(String gradeCode, Page page) {
+		return newBookService.gradeBookUd(gradeCode, page);
+	}
+
+	@Override
+	public Result gradeDriftUd(String gradeCode, Page page) {
+		return newBookService.gradeDriftUd(gradeCode, page);
+	}
+	
+	@Override
+	public Result pageBook(int type) {
+		return newBookService.getByPageBook(type);
+	}
 	
 	@Override
 	public Result getByIsbn(String schoolCode, String isbn) {
@@ -188,12 +291,5 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 		}
 		return null;
 	}
-	
-	public static void main(String[] args) {
-		
-	}
-	
-	
-	
 
 }

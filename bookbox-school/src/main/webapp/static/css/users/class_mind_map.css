@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+.content{
+	margin-top: 0.3rem;
+	padding: 10px 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    gap: 14px 4px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.content .child {
+    height: 8.2rem;
+    padding: 0.5rem 0rem;
+    font-size: 0.7rem;
+    border-radius: 8px;
+    text-align: center;
+    background: #f5f1f1;
+    letter-spacing: 1px;
+}
+.content .children{
+    float:left;
+    font-size: 15px;
+    height: 6rem;
+    line-height: 1rem;
+    text-align: center;
+}
+.content .children img{
+  	width: 4.8rem;
+    border-radius: 0.3rem;
+}
+.name{
+ 	display: inline-block;
+ 	overflow: hidden;
+ 	width: 100px;
+ 	word-break: keep-all;
+ 	white-space: nowrap;
+ 	text-overflow: ellipsis;
+ 	margin-top: 0.1rem;
+}
+
+
