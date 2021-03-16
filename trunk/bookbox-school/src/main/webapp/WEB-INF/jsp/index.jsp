@@ -12,7 +12,7 @@
 <script type="text/javascript">
 $(function(){
 	//添加【&connect_redirect=1】,用于防止网页授权时回调多次的问题
-	window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc966e0536c0678f&redirect_uri=http://wx.feimread.com/mobile/wx/check/user&response_type=code&scope=snsapi_userinfo&state=${u}&connect_redirect=1#wechat_redirect";
+	window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc966e0536c0678f&redirect_uri=http://xt.feimread.com/school/wx/check/user&response_type=code&scope=snsapi_userinfo&state=${u}&connect_redirect=1#wechat_redirect";
 });
 </script>
 </head>

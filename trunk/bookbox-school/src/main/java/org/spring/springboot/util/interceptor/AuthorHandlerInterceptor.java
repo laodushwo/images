@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.amall.books.commons.domain.UsersVO;
+import com.amall.books.commons.domain.ZzUsersVO;
 
 @Configuration
 public class AuthorHandlerInterceptor implements HandlerInterceptor {
@@ -60,28 +60,11 @@ public class AuthorHandlerInterceptor implements HandlerInterceptor {
      * @return
      */
     private boolean hasPermission(HttpServletRequest request, HttpServletResponse response, Object handler) {
-//        if (handler instanceof HandlerMethod) {
-//            HandlerMethod handlerMethod = (HandlerMethod) handler;
-//            // 获取方法上的注解
-//            AuthorAnnotation authorAnnotation = handlerMethod.getMethod().getAnnotation(AuthorAnnotation.class);
-//            // 如果方法上的注解为空 则获取类的注解
-//            if (authorAnnotation == null) {
-//            	authorAnnotation = handlerMethod.getMethod().getDeclaringClass().getAnnotation(AuthorAnnotation.class);
-//            }
-//            // 如果标记了注解，则判断权限
-//            if (authorAnnotation != null && StringUtils.isNotBlank(authorAnnotation.value())) {
-                // redis或数据库 中获取该用户的权限信息 并判断是否有权限
-//                Set<String> permissionSet = adminUserService.getPermissionSet();
-//                if (CollectionUtils.isEmpty(permissionSet) ){
-//                    return false;
-//                }
-//                return permissionSet.contains(requiredPermission.value());
-            	UsersVO usersVO = WebUtils.getUsers(request);
-            	if(usersVO == null) {
-//            		return false;
-            	}
-//            }
-//        }
+
+    	ZzUsersVO usersVO = WebUtils.getUsers(request);
+    	if(usersVO == null) {
+//          return false;
+    	}
         return true;
     }
 

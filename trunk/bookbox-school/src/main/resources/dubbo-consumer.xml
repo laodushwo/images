@@ -14,5 +14,13 @@
 	<dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
 
 	<dubbo:reference id="newBookService" interface="com.amall.books.commons.dointerface.NewBookService"/>
+	<dubbo:reference id="deviceService" interface="com.amall.books.commons.dointerface.DeviceService"/>
+	<dubbo:reference id="zzCardService" interface="com.amall.books.commons.dointerface.ZzCardService"/>
+	<dubbo:reference id="appVersionService" interface="com.amall.books.commons.dointerface.AppVersionService"/>
+	<dubbo:reference id="zzUsersService" interface="com.amall.books.commons.dointerface.ZzUsersService"/>
+	<dubbo:reference id="zzSchoolService" interface="com.amall.books.commons.dointerface.ZzSchoolService"/>
+	<dubbo:reference id="zzChildrenService" interface="com.amall.books.commons.dointerface.ZzChildrenService"/>
+	<dubbo:reference id="zzBookLogService" interface="com.amall.books.commons.dointerface.ZzBookLogService"/>
+	<dubbo:reference id="activityService" interface="com.amall.books.commons.dointerface.ActivityService"/>
 
 </beans>
