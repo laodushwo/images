@@ -11,6 +11,7 @@ import com.amall.books.commons.domain.ZzBookMindVO;
 import com.amall.books.commons.domain.ZzBookReadFeelVO;
 import com.amall.books.commons.domain.ZzChildrenVO;
 import com.amall.books.commons.domain.ZzUsersVO;
+import com.amall.commons.result.DefaultResult;
 import com.amall.commons.result.Result;
 
 @Service
@@ -69,8 +70,12 @@ public class DefaultChildrenAO extends AbstractAO implements ChildrenAO {
 
 	@Override
 	public Result readFeelList(ZzUsersVO userVO, String bookId) {
+		Result result = new DefaultResult();
 		ZzBookReadFeelVO bookReadFeelVO = new ZzBookReadFeelVO();
 		ZzChildrenVO childrenVO = userVO.getChildrenVO();
+		if (null == childrenVO) {
+			return result;
+		}
 		bookReadFeelVO.setSchoolId(childrenVO.getSchoolId());
 		bookReadFeelVO.setGradeName(childrenVO.getGradeVO().getName());
 		bookReadFeelVO.setBookId(bookId);

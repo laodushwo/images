@@ -21,7 +21,7 @@
 			var childrenId = "${usersVO.childrenVO.id}";
 			if (isEmpty(childrenId)) {
 				// 如果未填写基础资料，则不能看到思维导图和读后感
-				$(".mind_map, .read_feel").css("display", "none");
+				$(".mind_map, .read_feel, .xdhg").css("display", "none");
 			}
 			
 			// 判断用户是否填写过思维导图
@@ -94,6 +94,9 @@
 			common.getData(common.basePath + "/api/readFeelList", {"bookId": bookId}, function(data) {
 				if (data.success) {
 					var list = data.models.bookReadFeelList;
+					if (list == undefined) {
+						return ;
+					}
 					if (list.length == 0) {
 						$(".zwpl").css("display", "block");
 						return ;

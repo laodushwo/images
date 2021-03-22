@@ -17,7 +17,7 @@ public class MyWebConfigurer extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new AuthorHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/static/*")
-				.excludePathPatterns("/error").excludePathPatterns("/api/**");
+				.excludePathPatterns("/error").excludePathPatterns("/wx/**").excludePathPatterns("/api/**");
 	}
 	private CorsConfiguration buildConfig() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();

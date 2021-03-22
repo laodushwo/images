@@ -55,9 +55,12 @@
 				url,
     			{"name": name, "mobile": mobile, "cardId": cardId, "schoolName": schoolName, "gradeCode": gradeCode}, 
     			function(data) {
-    				var msg = data.success ? msg = "操作成功" : msg = data.errorMsg[0];
-    				layer.msg(msg);
-    				setTimeout(function() { location.reload(); }, 2000);
+    				if (data.success) {
+						layer.msg("操作成功");
+						setTimeout(function() { location.reload(); }, 2000);
+						return ;
+    				}
+    				layer.msg(data.errorMsg[0]);
     			}
 	    	);
 		}
