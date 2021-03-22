@@ -28,4 +28,7 @@ public interface BookAO {
 	Result gradeDriftUd(String gradeCode, Page page);
 	
 	Result pageBook(int type);
+	
+	Result bookHotOrNew(int type, Page page);
+	
 }

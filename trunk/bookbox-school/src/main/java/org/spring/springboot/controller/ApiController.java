@@ -78,10 +78,17 @@ public class ApiController {
 		return appVersionAO.getByIdentification(identification);
 	}
 	
-	// 根据不同类型查询首页书籍列表
+	// 根据不同类型查询首页书籍列表（热门、最新）
 	@RequestMapping(value = "page/book/{type}", method = { RequestMethod.GET, RequestMethod.POST })
 	public Result pageBook(@PathVariable int type) {
 		return bookAO.pageBook(type);
+	}
+	
+	// 点击热门书籍   或  最新书籍菜单获取列表
+	@RequestMapping(value = "bookHotOrNew", method = { RequestMethod.GET, RequestMethod.POST })
+	public Result bookHotOrNew(int type, Integer curPage, Integer pageSize) {
+		page = new Page(curPage,pageSize);
+		return bookAO.bookHotOrNew(type, page);
 	}
 	
 	// 小孩新增

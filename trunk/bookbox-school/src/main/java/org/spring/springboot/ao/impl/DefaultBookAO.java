@@ -137,6 +137,11 @@ public class DefaultBookAO extends AbstractAO implements BookAO {
 	}
 	
 	@Override
+	public Result bookHotOrNew(int type, Page page) {
+		return newBookService.getByPageBookList(type, page);
+	}
+	
+	@Override
 	public Result getByIsbn(String schoolCode, String isbn) {
 		Result result = new DefaultResult();
 		result = newBookService.getByIsbn(schoolCode, isbn);

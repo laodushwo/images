@@ -81,18 +81,24 @@
 	
 	function validChildren(type) {
 		var childrenId = "${usersVO.childrenVO.id}";
-		if (isEmpty(childrenId)) {
-			layer.msg("基础资料还未填写哦！"); return ;
-		}
-		
 		var cardId = "${usersVO.childrenVO.cardId}";
-		
 		switch (type) {
 			case 1: location.href = '<c:url value="/book/keep/file"/>'; break;
 			case 2: location.href = '<c:url value="/book/mybook"/>'; break;
-			case 3: location.href = '<c:url value="/school/school/book/page"/>'; break;
-			case 4: location.href = '<c:url value="/school/grade/book/page"/>'; break;
+			case 3: 
+				if (isEmpty(childrenId)) {
+					layer.msg("基础资料还未填写哦！"); return ;
+				}
+				location.href = '<c:url value="/school/school/book/page"/>'; break;
+			case 4: 
+				if (isEmpty(childrenId)) {
+					layer.msg("基础资料还未填写哦！"); return ;
+				}
+				location.href = '<c:url value="/school/grade/book/page"/>'; break;
 			case 5: 
+				if (isEmpty(childrenId)) {
+					layer.msg("基础资料还未填写哦！"); return ;
+				}
 				if (isEmpty(cardId)) {
 					layer.msg("还未绑卡，无法查看哦！"); return ;
 				}

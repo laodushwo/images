@@ -23,12 +23,32 @@ public class BookContorller {
 	
 	@Autowired
 	private BookAO bookAO;
+	
+	// 热门书籍
+	@RequestMapping(value = "hot", method = RequestMethod.GET)
+	public ModelAndView hot() {
+		ModelAndView andView = new ModelAndView();
+		andView.setViewName("users/book_hot_list");
+		return andView;
+	}
+	
+	// 最新书籍
+	@RequestMapping(value = "newest", method = RequestMethod.GET)
+	public ModelAndView newest() {
+		ModelAndView andView = new ModelAndView();
+		andView.setViewName("users/book_newest_list");
+		return andView;
+	}
 
 	// 书籍详情
 	@RequestMapping(value = "detail/{isbn}", method = RequestMethod.GET)
 	public ModelAndView detail(@PathVariable String isbn) {
 		ModelAndView andView = new ModelAndView();
 		ZzUsersVO usersVO = WebUtils.getUsers(request);
+		if (null == usersVO) {
+			andView.setViewName("redirect:/wx/index");
+			return andView;
+		}
 		Result result = bookAO.getByBookDetail(usersVO.getId(), isbn);
 		andView.addObject("bookVO", result.get("bookVO"));
 		andView.addObject("bookMindVO", result.get("bookMindVO"));
