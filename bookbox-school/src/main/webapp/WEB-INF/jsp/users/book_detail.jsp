@@ -161,7 +161,7 @@
 	<div class="mind_map">
 		<p class="bold">阅读</p>
 		<a href="javascript:void(0);" class="link">
-   			<div><span><img src="<c:url value="/static/image/homepage/m1.png"/>"></span><p>查看所有</p></div>
+   			<div><span><img src="<c:url value="/static/image/homepage/swdt.png"/>"></span><p>查看所有</p></div>
    		</a>
    		<a href="javascript:void(0);" class="create">
    			<span>创建思维导图</span>

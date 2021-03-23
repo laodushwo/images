@@ -11,11 +11,13 @@ import org.spring.springboot.util.SessionForm;
 import org.spring.springboot.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.amall.books.commons.domain.ZzChildrenVO;
+import com.amall.books.commons.domain.ZzSchoolAdminVO;
 import com.amall.books.commons.domain.ZzUsersVO;
 import com.amall.commons.result.Result;
 
@@ -38,15 +40,18 @@ public class UsersContorller {
 		Result result = usersAO.get(users);
 		ZzUsersVO usersVO = (ZzUsersVO) result.get("usersVO");
 		ZzUsersVO gradeUsersVO = (ZzUsersVO) result.get("gradeUsersVO");
-		String role = "";
+		ZzSchoolAdminVO schoolAdminVO = (ZzSchoolAdminVO) result.get("schoolAdminVO");
+//		String role = "";
+		// 班级管理员
 		if (null != gradeUsersVO) {
 			usersVO.setOutId(gradeUsersVO.getOutId());
 			usersVO.setOutType(gradeUsersVO.getOutType());
-			role = "grade";
+//			role = "grade";
 		}
 		andView.setViewName("users/index");
 		loginAfter(usersVO);
-		andView.addObject("role", role);
+//		andView.addObject("role", role);
+		andView.addObject("schoolAdminVO", schoolAdminVO); // 学校管理员
 		andView.addObject("usersVO", usersVO);
 		request.setAttribute("usersVO", usersVO);
 		return andView;
@@ -83,6 +88,17 @@ public class UsersContorller {
 		}
 		// 跳转基础资料
 		andView.setViewName("users/basic_data");
+		return andView;
+	}
+	
+	@RequestMapping(value = "school/admin/{schoolId}/{schoolName}", method = RequestMethod.GET)
+	public ModelAndView schoolAdmin(@PathVariable String schoolId, @PathVariable String schoolName) {
+		ModelAndView andView = new ModelAndView();
+		andView.addObject("schoolId", schoolId);
+		andView.addObject("schoolName", schoolName);
+		ZzUsersVO usersVO = WebUtils.getUsers(request);
+		andView.addObject("usersVO", usersVO);
+		andView.setViewName("users/school_admin");
 		return andView;
 	}
 	

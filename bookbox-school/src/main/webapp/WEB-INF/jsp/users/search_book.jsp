@@ -78,14 +78,14 @@
 		common.getData(common.basePath +"/api/search/book", {"name": name}, function(data){
 			if(data.success){
 				var curPageData = data.models.bookList;
-				var totalPage = 100;
+				var totalPage = 1;
 				mescroll.endByPage(curPageData.length, totalPage, null);
 				processList(curPageData);
 			}
 		});
 	}
 	function processList(bookList){
-		$("#mescroll ul").append("");
+		$(".school_book").html("");
 		var html ='';
 		$(bookList).each(function(i, obj) {
         	html +='<a href="<c:url value="/book/detail/'+ obj.isbn +'"/>"><li>';
