@@ -36,6 +36,12 @@
 .book_name {
 	font-size: 0.8rem;
     height: 1.5rem;
-    overflow: hidden;
     line-height: 1rem;
+    display: inline-block;
+    overflow: hidden;
+    width: 95%;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 0.1rem;
 }

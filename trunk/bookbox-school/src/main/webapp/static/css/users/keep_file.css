@@ -29,7 +29,8 @@
 .r_qr {
 	float: left;
     width: 45%;
-    line-height: 5rem;
+    line-height: 4rem;
+    margin-top: 45%;
 }
 
 .qr{
@@ -40,6 +41,7 @@
     font-size: 0.7rem;
     color: #f1ecec;
     letter-spacing: 1px;
+    margin-left: 5%;
 }
 .inp{
     border: 1px solid #795548;

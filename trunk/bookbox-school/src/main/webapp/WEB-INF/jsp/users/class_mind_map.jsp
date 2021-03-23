@@ -36,7 +36,7 @@
 				var id = "d" + i;
 				html +='<input type="hidden" id="'+ id +'" value=\''+ content +'\' />';
 				html +='<a href="javascript:void(0);" onclick="showMindMap(\''+ id +'\')" >';
-				html +='<div class="children"><img src="<c:url value="/static/image/homepage/m1.png"/>"><p class="name">'+ obj.childrenName +'</p></div>';
+				html +='<div class="children"><img src="<c:url value="/static/image/homepage/swdt.png"/>"><p class="name">'+ obj.childrenName +'</p></div>';
 	        	html +='</a>';
 			});
 			$(".content").append(html);

@@ -47,7 +47,12 @@
 	 				                scanType : ["checkJsApi", "qrCode", "barCode" ], // 可以指定扫二维码还是一维码，默认二者都有 *
 	 				                success: function (res) {
 	 				                    var code = res.resultStr;
-	 				                	bind(code);
+	 				                    if (!isEmpty(code)) {
+	 				                    	var isbn = code.split(",")[1];
+	 				                    	bind(isbn);
+	 				                    	return ;
+	 				                    }
+	 				                	layer.msg("扫码失败！");
 	 				                }
 	 				            });
 	 				        }
@@ -64,10 +69,10 @@
 	 		  	url: url,
 	 		  	success: function(json) {
 	 			  	if (json.success) {
-	 				  	layer.msg("存档成功");
+	 				  	layer.msg("存档成功", {icon:1, time:3000, shift: 6});
 	 				  	$("#isbn").val("");
 	 			  	} else {
-	 				  	layer.msg(json.errorMsg[0]);
+	 				  	layer.msg(json.errorMsg[0], {icon:1, time:3000, shift: 6});
 	 			  	}
 	 		  	}
 		 	});
@@ -89,14 +94,14 @@
 </head>
 <body class="body">
 	<div class="head">
-   		<span><img src="<c:url value="/static/image/homepage/psgl.png"/>"><p>读书存档</p></span>
+   		<span><img width="30%" height="20%" src="<c:url value="/static/image/homepage/dscd.png"/>"></span>
 	</div>	
 	<div class="tip">
 		<span>请将手机镜头对准书本背后的ISBN条形码，或者输入13位数的号码</span>
 	</div>
 	<div class="content">
 		<div class="l_qr">
-			<img src="<c:url value="/static/image/homepage/psgl.png"/>">
+			<img width="68%" height="20%" src="<c:url value="/static/image/homepage/qr.png"/>">
 			<p><span class="button qr" id="qrIsbnCode">扫条形码</span></p>
 		</div>
 		<div class="r_qr">

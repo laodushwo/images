@@ -45,6 +45,7 @@ public class DefaultUsersAO extends AbstractAO implements UsersAO {
 		// 检查用户的角色，如果是普通用户，则跳转到用户首页，如果是班级老师，则跳转老师管理首页
 		Result qResult = zzUsersService.checkMobileAdmin(usersVO.getId());
 		result.setModel("gradeUsersVO", qResult.get("gradeUsersVO"));
+		result.setModel("schoolAdminVO", qResult.get("schoolAdminVO"));
 		ZzChildrenVO childrenVO = usersVO.getChildrenVO();
 		
 		// 如果用户对象里面，小孩对象不为空，则判断小孩绑定的卡和学校是否有相应的数据

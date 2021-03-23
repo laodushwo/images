@@ -33,6 +33,12 @@
 			});
 		}
 		
+		// 是否显示管理员按钮
+		var schoolAdmin = "${schoolAdminVO.id}";
+		if (!isEmpty(schoolAdmin)) {
+			$(".activity1").css("display", "block");
+		}
+		
 		
 		// 点击按钮切换列表
 		$(".wrap label").click(function() {
@@ -55,6 +61,11 @@
 		// 跳转活动展示页面
 		$(".dbutton").click(function() {
 			location.href = '<c:url value="/activity/show/together"/>';
+		});
+		
+		// 跳转学校管理员展示页面
+		$(".dbutton1").click(function() {
+			location.href = '<c:url value="/user/school/admin/${schoolAdminVO.schoolId}/${schoolAdminVO.schoolName}"/>';
 		});
 	})
 	
@@ -115,12 +126,12 @@
 		<span class="btn_search"><img class="search_img" src="<c:url value="/static/image/homepage/fdj.png"/>"></span>
 	</div>
 	<div class="scroll">
-		<ul>
-			<a onclick="validChildren(2)" href="#"><li>
-    			<div><span><img src="<c:url value="/static/image/homepage/zy11.png"/>"></span><p>我的书架</p></div>
+		<ul class="ul">
+			<a onclick="validChildren(1)" href="#"><li>
+    			<div><span><img width="20%" height="20%" src="<c:url value="/static/image/homepage/dscd.png"/>"></span></div>
     		</li></a>
-    		<a onclick="validChildren(1)" href="#"><li>
-    			<div><span><img src="<c:url value="/static/image/homepage/zy11.png"/>"></span><p>读书存档</p></div>
+			<a onclick="validChildren(2)" href="#"><li>
+    			<div><span><img width="20%" height="20%" src="<c:url value="/static/image/homepage/wdsj.png"/>"></span></div>
     		</li></a>
     	</ul>
    	</div>
@@ -223,6 +234,10 @@
 <!--     		</div> -->
 <!--     	</a> -->
     </div>
+    
+    <div class="activity1">
+		<button class="dbutton1">管理员</button>
+	</div>
     
     <div class="activity">
 		<button class="dbutton">活动</button>
