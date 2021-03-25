@@ -23,7 +23,7 @@
 		$(function(){
 			
 			// 判断是否存在活动
-			common.getData(common.basePath +"/api/findTogeter", {}, function(data) {
+			common.getData(common.basePath +"/api/findTogether", {}, function(data) {
 				var together = data.models.activityTogetherVO;
 				if (null != together) {
 					$("#activityId").val(together.id);

@@ -1,11 +1,8 @@
 package org.spring.springboot.ao.impl;
 
-import java.io.OutputStream;
-
 import javax.annotation.Resource;
 
 import org.spring.springboot.ao.DeviceAO;
-import org.spring.springboot.util.QRCodeUtil;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 

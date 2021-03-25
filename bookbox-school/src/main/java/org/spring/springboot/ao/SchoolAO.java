@@ -37,5 +37,13 @@ public interface SchoolAO {
 	 * @return
 	 */
 	Result bookGradeList(String gradeId, Page page);
+	
+	/**
+	 * 根据学校ID查询所有班级
+	 * 
+	 * @param schoolId
+	 * @return
+	 */
+	Result getByGradeList(String schoolId);
 
 }

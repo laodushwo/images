@@ -9,6 +9,7 @@ import org.spring.springboot.ao.BookAO;
 import org.spring.springboot.ao.CardAO;
 import org.spring.springboot.ao.ChildrenAO;
 import org.spring.springboot.ao.DeviceAO;
+import org.spring.springboot.ao.SchoolAO;
 import org.spring.springboot.util.WebUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,8 @@ public class ApiController {
 	private ChildrenAO childrenAO;
 	@Resource
 	private ActivityAO activityAO;
+	@Resource
+	private SchoolAO schoolAO;
 	
 	@Resource
 	private HttpServletRequest request;
@@ -198,11 +201,17 @@ public class ApiController {
 		return activityAO.updateTogether(usersVO.getChildrenVO().getGradeId());
 	}
 	
-	// 查询班级共读一本书活动
-	@RequestMapping(value = "findTogeter", method = { RequestMethod.GET, RequestMethod.POST })
-	public Result findTogeter() {
+	// 普通用户 - 查询班级共读一本书活动
+	@RequestMapping(value = "findTogether", method = { RequestMethod.GET, RequestMethod.POST })
+	public Result findTogeter(String gradeId) {
 		ZzUsersVO usersVO = WebUtils.getUsers(request);
 		return activityAO.findTogether(usersVO.getChildrenVO().getGradeId());
+	}
+	
+	// 管理员 - 查询班级共读一本书活动
+	@RequestMapping(value = "adminFindTogether", method = { RequestMethod.GET, RequestMethod.POST })
+	public Result adminFindTogeter(String gradeId) {
+		return activityAO.findTogether(gradeId);
 	}
 	
 	// 生成二维码卡，用于设备扫码登陆
@@ -228,6 +237,11 @@ public class ApiController {
 		ZzUsersVO usersVO = WebUtils.getUsers(request);
 		Result result = bookAO.gradeDriftUd(usersVO.getChildrenVO().getGradeCode(), page);
 		return result;
+	}
+	
+	@RequestMapping(value = "school/admin/grade", method = { RequestMethod.GET, RequestMethod.POST })
+	public Result schoolAdminGrade(String schoolId) {
+		return schoolAO.getByGradeList(schoolId);
 	}
 	
 	// 管理界面登录（输入密码）

@@ -39,4 +39,9 @@ public class DefaultSchoolAO extends AbstractAO implements SchoolAO {
 		return zzSchoolService.getByGradeBookList(gradeId, page);
 	}
 
+	@Override
+	public Result getByGradeList(String schoolId) {
+		return zzSchoolService.getByGradeList(schoolId);
+	}
+
 }
