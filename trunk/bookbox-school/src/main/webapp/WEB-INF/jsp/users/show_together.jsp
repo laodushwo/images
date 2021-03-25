@@ -22,8 +22,10 @@
 	<script type="text/javascript">
 		$(function(){
 			
+			var gradeId = "${gradeId}";
+			var url = isEmpty(gradeId) ? "/api/findTogether" : "/api/adminFindTogether";
 			// 判断是否存在活动
-			common.getData(common.basePath +"/api/findTogeter", {}, function(data) {
+			common.getData(common.basePath + url, {"gradeId": gradeId}, function(data) {
 				var together = data.models.activityTogetherVO;
 				if (null != together) {
 					$("#bookId").val(together.bookId);

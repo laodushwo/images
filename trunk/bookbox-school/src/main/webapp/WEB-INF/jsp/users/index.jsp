@@ -25,7 +25,7 @@
 		// 是否显示活动按钮
 		var childrenId = "${usersVO.childrenVO.id}";
 		if (!isEmpty(childrenId)) {
-			common.getData(common.basePath +"/api/findTogeter", {}, function(data) {
+			common.getData(common.basePath +"/api/findTogether", {}, function(data) {
 				var together = data.models.activityTogetherVO;
 				if (null != together) {
 					$(".activity").css("display", "block");
