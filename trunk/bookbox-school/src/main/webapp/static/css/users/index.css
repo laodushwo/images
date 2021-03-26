@@ -170,11 +170,12 @@ input:-ms-input-placeholder {
     vertical-align: middle;  
     font-weight: 900; 
     font-size:125%;
-    background: #bdf57c;
+    background: rgb(163,209,101);
     border: none;
     border-radius: 5px 5px 20px 5px;
     width: 200px;
     height: 100px;
+    color: #f9f7f7;
 }
 .other {
 	background-color: #f5f5f5; 
@@ -206,8 +207,9 @@ input:-ms-input-placeholder {
     font-size: 0.7rem;
     border-radius: 8px;
     text-align: center;
-    background: #f4fbed;
+    background: rgb(163,209,101);
     letter-spacing: 1px;
+    color: #fffdfd;
 }
 .top100 .book_image{
     float:left;
