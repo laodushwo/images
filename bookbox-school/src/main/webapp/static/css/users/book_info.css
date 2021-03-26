@@ -121,7 +121,7 @@ div.pl_r {
 	line-height: 1.5rem;
     padding: 0.3rem 0.5rem 0rem 0.3rem;
     /* background-color: #eeeeee8f; */
-    height: 5rem;
+    height: 4rem;
     margin-top: 0.3rem;
     border-radius: 0.5rem;
     border: 0.5px solid #84e088;
@@ -149,7 +149,7 @@ div.pl_r {
     letter-spacing: 0.3px;
     color: #333;
     font-size: 1em;
-    height: 3rem;
+    height: 2rem;
     overflow-y: scroll;
 }
 
