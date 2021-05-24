@@ -79,7 +79,7 @@ public class AuthorHandlerInterceptor implements HandlerInterceptor {
 //                return permissionSet.contains(requiredPermission.value());
             	ZzUsersVO usersVO = WebUtils.getUsers(request);
             	if(usersVO == null) {
-//            		return false;
+            		return false;
             	}
 //            }
 //        }

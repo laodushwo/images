@@ -15,6 +15,8 @@ public interface BookAO {
 	
 	Result bookLogList(String userId, Page page);
 	
+	Result getByIsbn(String isbn);
+	
 	Result qrcodeKeep(String userId, String isbn);
 	
 	Result mybook(String userId, Page page);
