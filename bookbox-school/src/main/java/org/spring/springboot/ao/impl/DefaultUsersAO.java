@@ -38,8 +38,8 @@ public class DefaultUsersAO extends AbstractAO implements UsersAO {
 	public Result get(ZzUsersVO usersVO) {
 		Result result = new DefaultResult();
 		// 暂时固定
-//		result = zzUsersService.get(usersVO.getId());
-		result = zzUsersService.get("123e45b89c9d4e5b9684e5072232kkkk");
+		result = zzUsersService.get(usersVO.getId());
+//		result = zzUsersService.get("123e45b89c9d4e5b9684e5072232kkkk");
 		usersVO = (ZzUsersVO) result.get("usersVO");
 		
 		// 检查用户的角色，如果是普通用户，则跳转到用户首页，如果是班级老师，则跳转老师管理首页

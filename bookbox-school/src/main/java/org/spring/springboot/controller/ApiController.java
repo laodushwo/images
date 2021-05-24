@@ -119,6 +119,11 @@ public class ApiController {
 		return result;
 	}
 	
+	@RequestMapping(value = "getByIsbn/{isbn}", method = { RequestMethod.GET, RequestMethod.POST })
+	public Result getByIsbn(@PathVariable String isbn) {
+		return bookAO.getByIsbn(isbn);
+	}
+	
 	// 读书存档
 	@RequestMapping(value = "qrcode/keep/{isbn}", method = { RequestMethod.GET, RequestMethod.POST })
 	public Result qrcodeKeep(@PathVariable String isbn) {
