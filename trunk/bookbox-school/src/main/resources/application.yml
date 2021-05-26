@@ -22,7 +22,7 @@ spring:
   redis:
     host: 47.112.34.193
     port: 6379
-    requirePass: 123456
+    password: Feimread@2021
     max-wait: 30000
     max-active: 100
     max-idle: 20
